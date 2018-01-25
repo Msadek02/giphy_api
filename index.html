@@ -2,20 +2,41 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <title>GIFS</title>
 </head>
 
 <body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript">
-    // Example queryURL for Giphy API
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=Chelseafc&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W";
 
+<div class="container">
+  <h1>GIFS Search</h1>
+
+  <div id="gif-view"></div>
+
+  <form id="gif-form">
+    <label for="gif-input">Search for a Gif</label>
+    <input type="text" id="gif-input"><br>
+
+    <input id="find-gif" type="submit" value="Gif Search">
+  </form>
+
+  <script type="text/javascript">
+      $("#find-gif").on("click", function(event) {
+
+        event.preventDefault();
+
+        var gif = $("#gif-input").val();
+
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q= " + gif + "&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W";
+      // Retrieving form our api url search and display it in a string.
     $.ajax({
       url: queryURL,
       method: 'GET'
     }).done(function(response) {
-      console.log(response.data[0].images.fixed_width.url);
+      $("#gif-view").html(JSON.stringify(response));
+    });
+
     });
   </script>
 
