@@ -3,7 +3,7 @@
 
       function displayGifs() {
           var gif = $(this).attr("data-name");
-          var queryURL = "http://api.giphy.com/v1/gifs/search?q= " + gif + "&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W&limit=5";
+          var queryURL = "http://api.giphy.com/v1/gifs/search?q= " + gif + "&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W&limit=10";
 
 
           $.ajax({
@@ -29,7 +29,7 @@
 
                   image.append(image);
 
-                  $("#gif-view").append(image);
+                  $("#gif-view").prepend(image);
 
               }
 
