@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="giphy.js"></script>
   <title>GIFS</title>
 </head>
 
@@ -23,71 +24,6 @@
 
     <input id="add-gif" type="submit" value="Add Gif">
   </form>
-
-  <script type="text/javascript">
-
-    var gifs = ["cats","dogs"];
-
-    function displayGifs(){
-
-    var gif = $(this).attr("data-name");  
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q= " + gif + "&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W&limit=10";
-
-
-    $.ajax({
-      url: queryURL,
-      method: 'GET'
-    }).done(function(response) {
-
-      var gifDiv = $("<div class='gif'>");
-
-      var imgURL = response.data[0].images.fixed_width.url;
-
-      var image = $("<img>").attr("src", imgURL);
-
-      gifDiv.html(image);
-
-      $("#gif-view").html(gifDiv);
-    });
-  }
-
-  function renderButtons() {
-
-    $("#buttons-view").empty();
-
-    for (var i = 0; i < gifs.length; i++) {
-
-      var a = $("<button>");
-
-      a.addClass("gif");
-
-      a.attr("data-name", gifs[i]);
-
-      a.text(gifs[i]);
-
-      $("#buttons-view").append(a);
-    }
-  }
-
-
-    $("#add-gif").on("click", function(event) {
-
-      event.preventDefault();
-
-      var gif = $("#gif-input").val().trim();
-
-      gifs.push(gif);
-
-      renderButtons();
-
-      });
-
-    $(document).on("click", ".gif", displayGifs);
-
-    renderButtons();
-
-
-  </script>
 
 </body>
 
