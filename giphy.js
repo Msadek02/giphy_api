@@ -3,7 +3,7 @@
 
       function displayGifs() {
           var gif = $(this).attr("data-name");
-          var queryURL = "http://api.giphy.com/v1/gifs/search?q= " + gif + "&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W&limit=10";
+          var queryURL = "https://api.giphy.com/v1/gifs/search?q= " + gif + "&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W&limit=10";
 
 
           $.ajax({
