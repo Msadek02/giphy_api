@@ -55,7 +55,7 @@
 
           for (var i = 0; i < gifs.length; i++) {
 
-              var a = $("<button>");
+              var a = $("<button type='button' class='btn btn-primary'>");
 
               a.addClass("gif-button");
 
