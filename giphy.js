@@ -1,7 +1,7 @@
   $(document).ready(function() {
-      var gifs = ["cats", "dogs", "husky"];
+      var players = ["Mohamed Salah", "Zlatan", "Ronaldo","Messi","Ronaldinho"];
 
-      function displayGifs() {
+      function displayPlayers() {
           var gif = $(this).attr("data-name");
           var queryURL = "https://api.giphy.com/v1/gifs/search?q= " + gif + "&api_key=riFcpySJBkJmW8iczsascuMVH9GjPM1W&limit=10";
 
@@ -33,7 +33,7 @@
 
               }
 
-              $(".gif").on("mouseover", function() {
+              $(".gif").on("click", function() {
 
                   var state = $(this).attr("data-state");
 
@@ -53,15 +53,15 @@
 
           $("#buttons-view").empty();
 
-          for (var i = 0; i < gifs.length; i++) {
+          for (var i = 0; i < players.length; i++) {
 
               var a = $("<button type='button' class='btn btn-primary'>");
 
               a.addClass("gif-button");
 
-              a.attr("data-name", gifs[i]);
+              a.attr("data-name", players[i]);
 
-              a.text(gifs[i]);
+              a.text(players[i]);
 
               $("#buttons-view").append(a);
           }
@@ -74,12 +74,12 @@
 
           var gif = $("#gif-input").val().trim();
 
-          gifs.push(gif);
+          players.push(gif);
 
           renderButtons();
       });
 
-      $(document).on("click", ".gif-button", displayGifs);
+      $(document).on("click", ".gif-button", displayPlayers);
 
       renderButtons();
 

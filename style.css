@@ -1,0 +1,17 @@
+form {
+	float: right;
+}
+#buttons-view {
+    margin: 10px;
+    padding-left: 887px;
+}
+.gif {
+	margin: 10px;
+	border: 20px;
+	border-color: black;
+}
+
+h1 {
+    font-family: arole;
+    font-size: 44px;
+}
