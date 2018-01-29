@@ -1,17 +1,19 @@
 form {
-	float: right;
+float: right;
 }
+
 #buttons-view {
-    margin: 10px;
-    padding-left: 90px;
+margin: 10px;
+padding-left: 90px;
 }
+
 .gif {
-	margin: 10px;
-	border: 20px;
-	border-color: black;
+margin: 10px;
+border: 20px;
+border-color: black;
 }
 
 h1 {
-    font-family: arole;
-    font-size: 44px;
+font-family: arole;
+font-size: 44px;
 }
